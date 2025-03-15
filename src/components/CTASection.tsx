@@ -1,16 +1,16 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { AppleIcon, MonitorSmartphone } from 'lucide-react';
+import { AppleIcon, Shield, Flag } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
   const phoneRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   
   const screens = [
-    "https://placehold.co/640x1280/FFF1F2/e11d48?text=App+Screen+1&font=playfair",
-    "https://placehold.co/640x1280/FFF1F2/e11d48?text=App+Screen+2&font=playfair",
-    "https://placehold.co/640x1280/FFF1F2/e11d48?text=App+Screen+3&font=playfair"
+    "https://placehold.co/640x1280/EFF6FF/1E40AF?text=Defense+Connect&font=inter",
+    "https://placehold.co/640x1280/EFF6FF/1E40AF?text=Service+Matching&font=inter",
+    "https://placehold.co/640x1280/EFF6FF/1E40AF?text=Secure+Messaging&font=inter"
   ];
   
   const [currentScreen, setCurrentScreen] = React.useState(0);
@@ -55,7 +55,7 @@ export const CTASection: React.FC = () => {
   }, [screens.length]);
   
   return (
-    <div className="bg-gradient-to-b from-background to-rose-50 section-padding">
+    <div className="bg-gradient-to-b from-background to-blue-50 section-padding">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Phone mockup */}
@@ -92,19 +92,19 @@ export const CTASection: React.FC = () => {
             {/* Floating annotations */}
             <div className="absolute top-1/4 -right-4 glass p-3 rounded-lg shadow-lg text-sm animate-float">
               <div className="flex items-center gap-2">
-                <div className="bg-rose-100 p-1.5 rounded-full">
-                  <MonitorSmartphone className="text-rose-500 w-4 h-4" />
+                <div className="bg-blue-100 p-1.5 rounded-full">
+                  <Shield className="text-blue-700 w-4 h-4" />
                 </div>
-                <span>AI Matching</span>
+                <span>Secure Matching</span>
               </div>
             </div>
             
             <div className="absolute bottom-1/4 -left-4 glass p-3 rounded-lg shadow-lg text-sm animate-float" style={{ animationDelay: '1.5s' }}>
               <div className="flex items-center gap-2">
-                <div className="bg-rose-100 p-1.5 rounded-full">
-                  <MonitorSmartphone className="text-rose-500 w-4 h-4" />
+                <div className="bg-blue-100 p-1.5 rounded-full">
+                  <Flag className="text-blue-700 w-4 h-4" />
                 </div>
-                <span>Privacy First</span>
+                <span>Service Priority</span>
               </div>
             </div>
           </div>
@@ -115,15 +115,15 @@ export const CTASection: React.FC = () => {
             className="space-y-8 transition-all duration-700 opacity-0 translate-y-10 order-1 md:order-2"
           >
             <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-              Download Our App and Start Your Journey Today
+              Download Defense Connect and Start Your Journey Today
             </h2>
             
             <p className="text-lg text-muted-foreground">
-              Our app makes it easy to find your perfect match on the go. Create your profile, set preferences, and connect with potential partners—all from your smartphone.
+              Our secure app makes it easy to find your perfect match in the defense community. Create your profile, verify your service, and connect with potential partners—anywhere, anytime.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="rounded-xl text-base px-6 py-6 bg-black hover:bg-gray-800 shadow-md group">
+              <Button className="rounded-xl text-base px-6 py-6 bg-indigo-700 hover:bg-indigo-800 shadow-md group">
                 <AppleIcon className="mr-2 h-6 w-6 transition-transform group-hover:scale-110" />
                 <div className="flex flex-col items-start">
                   <span className="text-xs">Download on the</span>
@@ -131,7 +131,7 @@ export const CTASection: React.FC = () => {
                 </div>
               </Button>
               
-              <Button className="rounded-xl text-base px-6 py-6 bg-black hover:bg-gray-800 shadow-md group">
+              <Button className="rounded-xl text-base px-6 py-6 bg-indigo-700 hover:bg-indigo-800 shadow-md group">
                 <svg className="mr-2 h-6 w-6 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.9 5c.1.1.1.1.2.2v13.5c0 .1-.1.2-.1.2l-7.9 4.4c-.1 0-.1 0-.2 0-.1 0-.1 0-.2-.1L2 17.6c0-.1-.1-.1-.1-.2V3.9c0-.1.1-.2.1-.2L9.8.3c.1 0 .1 0 .2 0 .1 0 .1 0 .2.1l7.7 4.6z" />
                 </svg>
@@ -145,7 +145,7 @@ export const CTASection: React.FC = () => {
             <div className="pt-6">
               <div className="flex items-center gap-6">
                 <div className="flex flex-col">
-                  <span className="text-3xl font-bold text-rose-600">4.8</span>
+                  <span className="text-3xl font-bold text-blue-700">4.8</span>
                   <div className="flex mt-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -156,13 +156,13 @@ export const CTASection: React.FC = () => {
                 </div>
                 <div className="h-12 w-px bg-gray-200"></div>
                 <div className="flex flex-col">
-                  <span className="text-3xl font-bold text-rose-600">1M+</span>
-                  <span className="text-sm text-muted-foreground mt-1">Downloads</span>
+                  <span className="text-3xl font-bold text-blue-700">1M+</span>
+                  <span className="text-sm text-muted-foreground mt-1">Defense Users</span>
                 </div>
                 <div className="h-12 w-px bg-gray-200"></div>
                 <div className="flex flex-col">
-                  <span className="text-3xl font-bold text-rose-600">50k+</span>
-                  <span className="text-sm text-muted-foreground mt-1">Success Stories</span>
+                  <span className="text-3xl font-bold text-blue-700">50k+</span>
+                  <span className="text-sm text-muted-foreground mt-1">Service Matches</span>
                 </div>
               </div>
             </div>

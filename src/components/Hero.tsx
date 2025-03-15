@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Medal } from 'lucide-react';
+import { ArrowRight, Shield, Medal, Flag } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-slate-100 min-h-[90vh] flex items-center">
       {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden military-bg-pattern">
         <div className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-radial from-blue-200/30 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-gradient-radial from-indigo-200/30 to-transparent rounded-full blur-3xl"></div>
       </div>
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" ref={heroRef}>
           {/* Text content */}
           <div className="hero-text-content space-y-8 transition-all duration-700 ease-out">
-            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-white/80 backdrop-blur-sm border border-blue-100 text-blue-700 font-medium mb-2">
+            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-blue-100 text-blue-700 font-medium mb-2">
               <Shield className="w-3.5 h-3.5 mr-1.5" />
               <span>Exclusively For Defense Families</span>
             </div>
@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 max-w-xl">
-              Dedicated matchmaking service for military personnel and their families, connecting people who understand the values of duty, honor, and commitment.
+              Dedicated matchmaking service for military personnel from the Army, Navy, and Air Force, connecting people who understand the values of duty, honor, and commitment.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-2">
@@ -63,12 +63,12 @@ export const Hero: React.FC = () => {
               <div className="flex">
                 <div className="w-8 h-8 rounded-full border-2 border-white overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1622902046580-2b47f47f5471?q=80&w=32&h=32&auto=format&fit=crop" 
-                    alt="User" className="w-full h-full object-cover" />
+                    alt="Army Officer" className="w-full h-full object-cover" />
                 </div>
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-8 h-8 -ml-3 rounded-full border-2 border-white overflow-hidden">
                     <img src={`https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=32&h=32&auto=format&fit=crop&ixlib=rb-${i}.1`} 
-                      alt="User" className="w-full h-full object-cover" />
+                      alt="Defense Personnel" className="w-full h-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -103,7 +103,7 @@ export const Hero: React.FC = () => {
               <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg animate-pulse" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-2">
                   <div className="bg-blue-100 p-1.5 rounded-full">
-                    <Shield className="text-indigo-500 w-4 h-4" />
+                    <Flag className="text-indigo-500 w-4 h-4" />
                   </div>
                   <p className="text-xs font-medium">3,500+ verified defense profiles</p>
                 </div>

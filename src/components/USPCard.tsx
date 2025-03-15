@@ -52,8 +52,8 @@ export const USPCard: React.FC<USPCardProps> = ({
         className
       )}
     >
-      <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-        <Icon className="h-6 w-6 text-rose-600" />
+      <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+        <Icon className="h-6 w-6 text-blue-700" />
       </div>
       
       <h3 className="text-xl font-semibold mb-3">{title}</h3>

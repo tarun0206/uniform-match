@@ -2,11 +2,12 @@
 import React, { useEffect, useRef } from 'react';
 import { 
   UserRound, 
-  Settings, 
-  Sparkles, 
   Shield, 
+  Sparkles, 
+  Flag, 
   ArrowDown,
-  CheckCircle2
+  CheckCircle2,
+  Medal
 } from 'lucide-react';
 
 interface Step {
@@ -20,27 +21,27 @@ export const Timeline: React.FC = () => {
   const steps: Step[] = [
     {
       icon: <UserRound className="h-6 w-6" />,
-      title: "Create Profile",
-      description: "Fill in your details, preferences, and upload verified photos to create your authentic profile.",
-      color: "from-rose-400 to-rose-500"
-    },
-    {
-      icon: <Settings className="h-6 w-6" />,
-      title: "Set Preferences",
-      description: "Define your partner preferences including values, lifestyle, and future goals for better matching.",
-      color: "from-fuchsia-400 to-fuchsia-500"
-    },
-    {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: "Smart Matching",
-      description: "Our AI algorithm finds compatible matches based on your profile and preferences.",
-      color: "from-purple-400 to-purple-500"
+      title: "Verify Service Status",
+      description: "Upload your service ID or credentials to verify your status as defense personnel or family member.",
+      color: "from-blue-400 to-blue-500"
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: "Secure Connection",
-      description: "Connect securely with potential partners in a respectful environment with privacy controls.",
+      title: "Create Secure Profile",
+      description: "Fill in your details, preferences, and upload verified photos to create your authentic profile.",
       color: "from-indigo-400 to-indigo-500"
+    },
+    {
+      icon: <Medal className="h-6 w-6" />,
+      title: "Set Service Preferences",
+      description: "Define your partner preferences including service branch, postings, relocation flexibility, and values.",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      icon: <Flag className="h-6 w-6" />,
+      title: "Connect With Purpose",
+      description: "Our algorithm matches you with compatible defense personnel who share your values and understand your lifestyle.",
+      color: "from-indigo-600 to-indigo-700"
     }
   ];
   
@@ -86,21 +87,21 @@ export const Timeline: React.FC = () => {
                   <div className={`h-16 w-16 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg`}>
                     {step.icon}
                   </div>
-                  <div className="hidden md:block text-sm font-medium mt-2 px-3 py-1 bg-rose-50 rounded-full text-rose-600">
+                  <div className="hidden md:block text-sm font-medium mt-2 px-3 py-1 bg-blue-50 rounded-full text-blue-700">
                     Step {index + 1}
                   </div>
                 </div>
                 
                 {/* Step content */}
-                <div className="glass p-6 rounded-2xl max-w-xl">
+                <div className="glass p-6 rounded-2xl max-w-xl border border-blue-100/50">
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                   
                   {/* Success message for first step to show completion status */}
                   {index === 0 && (
-                    <div className="mt-4 flex items-center text-sm text-green-600">
+                    <div className="mt-4 flex items-center text-sm text-blue-600">
                       <CheckCircle2 className="w-4 h-4 mr-1" />
-                      <span>Takes only 3 minutes to complete</span>
+                      <span>Quick verification takes less than 5 minutes</span>
                     </div>
                   )}
                 </div>
@@ -109,7 +110,7 @@ export const Timeline: React.FC = () => {
             
             {/* Connector */}
             {index < steps.length - 1 && (
-              <div className="h-16 w-px bg-gradient-to-b from-rose-300 to-fuchsia-300 my-4"></div>
+              <div className="h-16 w-px bg-gradient-to-b from-blue-300 to-indigo-300 my-4"></div>
             )}
           </React.Fragment>
         ))}
