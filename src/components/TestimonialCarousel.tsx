@@ -2,6 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel";
 
 interface Testimonial {
   quote: string;
@@ -33,37 +40,20 @@ export const TestimonialCarousel: React.FC = () => {
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
-  const nextSlide = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-      setTimeout(() => setIsAnimating(false), 500);
-    }
-  };
-  
-  const prevSlide = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setCurrentIndex((prevIndex) => 
-        prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-      );
-      setTimeout(() => setIsAnimating(false), 500);
-    }
-  };
   
   useEffect(() => {
     // Auto-advance slides
-    timeoutRef.current = setTimeout(nextSlide, 6000);
+    timeoutRef.current = setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 6000);
     
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [currentIndex]);
+  }, [currentIndex, testimonials.length]);
   
   return (
     <div className="relative overflow-hidden bg-background py-12">
@@ -82,67 +72,46 @@ export const TestimonialCarousel: React.FC = () => {
           </p>
         </div>
         
-        {/* Carousel */}
-        <div className="max-w-4xl mx-auto relative">
-          <div className="overflow-hidden rounded-2xl shadow-lg">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index}
-                className={`transition-all duration-500 ease-in-out absolute inset-0 ${
-                  index === currentIndex ? 'opacity-100 translate-x-0 z-10' : 
-                  index < currentIndex ? 'opacity-0 -translate-x-full z-0' : 'opacity-0 translate-x-full z-0'
-                }`}
-                style={{ 
-                  transitionDelay: index === currentIndex ? '0ms' : '0ms'
-                }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-                  {/* Image */}
-                  <div className="relative h-64 md:h-auto">
-                    <div className="absolute inset-0 bg-black/40 z-10"></div>
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.author} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  
-                  {/* Quote */}
-                  <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
-                    <Quote className="text-rose-200 w-12 h-12 mb-4" />
-                    <p className="text-lg md:text-xl italic mb-6">{testimonial.quote}</p>
-                    <div>
-                      <p className="font-semibold">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+        {/* Using shadcn Carousel for more reliable behavior */}
+        <div className="max-w-4xl mx-auto">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index}>
+                  <div className="rounded-2xl shadow-lg overflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                      {/* Image */}
+                      <div className="relative h-64 md:h-auto">
+                        <div className="absolute inset-0 bg-black/40 z-10"></div>
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.author} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      
+                      {/* Quote */}
+                      <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
+                        <Quote className="text-rose-200 w-12 h-12 mb-4" />
+                        <p className="text-lg md:text-xl italic mb-6">{testimonial.quote}</p>
+                        <div>
+                          <p className="font-semibold">{testimonial.author}</p>
+                          <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Navigation buttons */}
-          <div className="flex justify-between absolute top-1/2 left-4 right-4 -translate-y-1/2 z-20 pointer-events-none">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full pointer-events-auto"
-              onClick={prevSlide}
-            >
-              <ChevronLeft className="h-5 w-5" />
-              <span className="sr-only">Previous</span>
-            </Button>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
             
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full pointer-events-auto"
-              onClick={nextSlide}
-            >
-              <ChevronRight className="h-5 w-5" />
-              <span className="sr-only">Next</span>
-            </Button>
-          </div>
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 z-10">
+              <CarouselPrevious className="bg-white/80 backdrop-blur-sm hover:bg-white" />
+            </div>
+            <div className="absolute -right-4 top-1/2 -translate-y-1/2 z-10">
+              <CarouselNext className="bg-white/80 backdrop-blur-sm hover:bg-white" />
+            </div>
+          </Carousel>
           
           {/* Indicators */}
           <div className="flex justify-center gap-2 mt-6">
