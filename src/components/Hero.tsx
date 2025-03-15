@@ -7,25 +7,21 @@ export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100');
-          entry.target.classList.remove('opacity-0', 'translate-y-6');
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
+    // Initialize elements as visible instead of hidden
     if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-    
-    return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
+      const textContent = heroRef.current.querySelector('.hero-text-content');
+      const imageContent = heroRef.current.querySelector('.hero-image-content');
+      
+      if (textContent) {
+        textContent.classList.remove('opacity-0', 'translate-y-6');
+        textContent.classList.add('opacity-100');
       }
-    };
+      
+      if (imageContent) {
+        imageContent.classList.remove('opacity-0', 'translate-y-6');
+        imageContent.classList.add('opacity-100');
+      }
+    }
   }, []);
   
   return (
@@ -40,7 +36,7 @@ export const Hero: React.FC = () => {
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" ref={heroRef}>
           {/* Text content */}
-          <div className="space-y-8 transition-all duration-700 ease-out opacity-0 translate-y-6">
+          <div className="hero-text-content space-y-8 transition-all duration-700 ease-out">
             <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-white/70 backdrop-blur-sm border border-rose-100 text-rose-600 font-medium mb-2">
               <Heart className="w-3.5 h-3.5 mr-1.5" />
               <span>Where Love Meets Tradition</span>
@@ -83,9 +79,9 @@ export const Hero: React.FC = () => {
           </div>
           
           {/* Hero image */}
-          <div className="relative transition-all duration-1000 delay-200 ease-out opacity-0 translate-y-6">
+          <div className="hero-image-content relative">
             <div className="relative aspect-square max-w-md mx-auto">
-              <div className="glass absolute inset-2 rounded-3xl overflow-hidden">
+              <div className="bg-white/20 backdrop-blur-sm shadow-xl absolute inset-2 rounded-3xl overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1622220835869-b8e267b332d7?q=80&w=800&auto=format&fit=crop" 
                   alt="Couple celebrating wedding" 
@@ -94,7 +90,7 @@ export const Hero: React.FC = () => {
               </div>
               
               {/* Floating elements */}
-              <div className="absolute -top-6 -right-6 glass p-4 rounded-xl animate-float shadow-lg">
+              <div className="absolute -top-6 -right-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg animate-pulse">
                 <div className="flex items-center gap-2">
                   <Heart className="text-rose-500 w-5 h-5 fill-rose-500" />
                   <div>
@@ -104,7 +100,7 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
               
-              <div className="absolute -bottom-6 -left-6 glass p-4 rounded-xl animate-float shadow-lg" style={{ animationDelay: '1s' }}>
+              <div className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-lg animate-pulse" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center gap-2">
                   <div className="bg-rose-100 p-1.5 rounded-full">
                     <Heart className="text-rose-500 w-4 h-4" />
