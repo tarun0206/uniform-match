@@ -32,7 +32,7 @@ const Index = () => {
           <div className="max-w-xl mx-auto text-center mb-16">
             <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-blue-50 text-blue-700 font-medium mb-4">
               <Medal className="w-3.5 h-3.5 mr-1.5" />
-              Why Choose Us
+              Why Choose DefenseConnect
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Finding Your Life Partner Should Be Honorable
@@ -77,7 +77,7 @@ const Index = () => {
               Simple Process
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              How Defense Connect Works
+              How DefenseConnect Works
             </h2>
             <p className="text-lg text-muted-foreground">
               Our streamlined process makes finding your perfect match simple, secure, and tailored to defense personnel.

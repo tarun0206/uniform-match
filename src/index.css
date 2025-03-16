@@ -36,6 +36,14 @@
     --ring: 220 70% 50%;
 
     --radius: 0.75rem;
+
+    /* Sidebar colors */
+    --sidebar: 215 30% 98%;
+    --sidebar-foreground: 215 25% 20%;
+    --sidebar-border: 215 15% 90%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 215 25% 20%;
+    --sidebar-ring: 220 70% 50%;
   }
 
   .dark {
@@ -66,6 +74,14 @@
     --border: 215 15% 25%;
     --input: 215 15% 25%;
     --ring: 220 70% 50%;
+
+    /* Sidebar colors */
+    --sidebar: 215 30% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-border: 215 15% 25%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-ring: 220 70% 50%;
   }
 }
 
@@ -127,4 +143,12 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-blue-400;
+}
+
+/* Shadows for glass effect */
+@layer utilities {
+  .shadow-glass {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
 }
