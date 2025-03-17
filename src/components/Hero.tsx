@@ -83,7 +83,7 @@ export const Hero: React.FC = () => {
             <div className="relative aspect-square max-w-md mx-auto">
               <div className="bg-white/20 backdrop-blur-sm shadow-xl absolute inset-2 rounded-3xl overflow-hidden border border-blue-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1627672360993-41d1065f86ba?q=80&w=800&auto=format&fit=crop" 
+                  src="https://defencedirecteducation.com/wp-content/uploads/2023/06/IMG_4289-scaled-e1687239400480.jpeg" 
                   alt="Military couple in uniform" 
                   className="w-full h-full object-cover"
                 />

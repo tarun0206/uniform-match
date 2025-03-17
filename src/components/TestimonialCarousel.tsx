@@ -20,22 +20,22 @@ interface Testimonial {
 export const TestimonialCarousel: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
-      quote: "Sacred Connection helped me find my soulmate through their value-based matching. We're getting married next month!",
+      quote: "UniformMatch helped me find my soulmate through their value-based matching. We're getting married next month!",
       author: "Priya & Arjun",
       location: "Mumbai, India",
-      image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop"
+      image: "https://girlandworld.com/wp-content/uploads/2020/07/img-20200721-wa0003.jpg"
     },
     {
       quote: "The app matched us based on our core values and life goals. After 6 months of getting to know each other, we're now engaged!",
       author: "Maya & David",
       location: "New York, USA",
-      image: "https://images.unsplash.com/photo-1529636798458-92914e1115b9?q=80&w=1200&auto=format&fit=crop"
+      image: "https://girlandworld.com/wp-content/uploads/2020/07/img-20200721-wa0003.jpg"
     },
     {
       quote: "We're from different backgrounds but share the same values. This platform helped us connect in a meaningful way.",
       author: "Raj & Lisa",
       location: "London, UK",
-      image: "https://images.unsplash.com/photo-1511089799797-c196f139691f?q=80&w=1200&auto=format&fit=crop"
+      image: "https://girlandworld.com/wp-content/uploads/2020/07/img-20200721-wa0003.jpg"
     }
   ];
   
